@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('page/{slug}/{language?}', function ($slug, $language = 'en') {
+    // routing logic here
+    return "Slug: $slug, Language: $language";
+})->where([
+    'slug' => '[a-z-]+',
+    'language' => '[a-zA-Z]{2}'
+]);
